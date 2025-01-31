@@ -129,6 +129,7 @@
              uses: actions/setup-java@v3
              with:
                java-version: '11'
+               distribution : temurin
            - name: Build with Maven
              run: mvn -B package --file demo-app/pom.xml
      ```
