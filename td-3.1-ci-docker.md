@@ -43,11 +43,11 @@
         </plugin>
       ```
 
-    > Lancez :  
+    Lancez :  
         ```bash
         mvn clean package -f demo-app/pom.xml
         ```
-    > Vous obtiendrez un fichier `demo-app-1.0-SNAPSHOT-jar-with-dependencies.jar` dans `target/`.
+    Vous obtiendrez un fichier `demo-app-1.0-SNAPSHOT-jar-with-dependencies.jar` dans `target/`.
 
 2. **Créer un Dockerfile**  
    - Dans la racine du projet (ou dans `demo-app/`), créez un fichier `Dockerfile` :
@@ -67,7 +67,7 @@
       docker build -t votreuser/demo-app:latest .
       ```
 
-    > Testez l’image :
+    Testez l’image :
         ```bash
         docker run --rm votreuser/demo-app:latest
         ```
