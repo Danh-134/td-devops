@@ -15,8 +15,9 @@
 1. **Créer un jar exécutable**  
     - Dans `demo-app/pom.xml`, assurez-vous d’avoir le plugin `maven-assembly-plugin` ou `maven-shade-plugin` pour créer un fat jar (toutes dépendances incluses).  
 
-    > Exemple pour `maven-assembly-plugin` :
-        ```xml
+    Exemple pour `maven-assembly-plugin` :
+
+      ```xml
         <plugin>
           <artifactId>maven-assembly-plugin</artifactId>
           <version>3.3.0</version>
@@ -40,7 +41,8 @@
             </execution>
           </executions>
         </plugin>
-        ```
+      ```
+
     > Lancez :  
         ```bash
         mvn clean package -f demo-app/pom.xml
