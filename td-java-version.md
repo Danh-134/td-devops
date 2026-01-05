@@ -2,8 +2,8 @@
 
 ## Pré-requis pour tous les TD DevOps
 
-1. **Java (JDK) 11 ou supérieur**  
-   - [Installation OpenJDK 11](https://openjdk.org/install/)  
+1. **Java (JDK) 25 ou supérieur**  
+   - [Installation OpenJDK 25](https://openjdk.org/projects/jdk/25/)  
    - Vérifier l’installation :
 
      ```bash
@@ -29,7 +29,7 @@
 4. **Docker**  
    - [Installer Docker Desktop (Windows/Mac)](https://www.docker.com/products/docker-desktop/) ou [Docker Engine (Linux)](https://docs.docker.com/engine/install/)  
    - Vérifier l’installation :  
-zdzadzadzadzadzas
+
      ```bash
      docker --version
      ```
@@ -91,7 +91,7 @@ zdzadzadzadzadzas
        -DgroupId=com.example \
        -DartifactId=demo-app \
        -DarchetypeArtifactId=maven-archetype-quickstart \
-       -DarchetypeVersion=1.4 \
+       -DarchetypeVersion=1.0.0 \
        -DinteractiveMode=false
      ```
 
@@ -127,10 +127,10 @@ zdzadzadzadzadzas
          runs-on: ubuntu-latest
          steps:
            - uses: actions/checkout@v2
-           - name: Set up JDK 11
-             uses: actions/setup-java@v3
+           - name: Set up JDK 25
+             uses: actions/setup-java@v5
              with:
-               java-version: '11'
+               java-version: '25'
            - name: Build with Maven
              run: mvn -B package --file demo-app/pom.xml
      ```
@@ -208,7 +208,7 @@ zdzadzadzadzadzas
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>3.2.2</version>
+        <version>3.6.0</version>
         <configuration>
           <configLocation>google_checks.xml</configLocation>
           <encoding>UTF-8</encoding>
@@ -261,7 +261,7 @@ zdzadzadzadzadzas
         ```xml
         <plugin>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>3.3.0</version>
+          <version>3.8.0</version>
           <configuration>
             <archive>
               <manifest>
@@ -293,7 +293,7 @@ zdzadzadzadzadzas
    - Dans la racine du projet (ou dans `demo-app/`), créez un fichier `Dockerfile` :
 
      ```dockerfile
-     FROM openjdk:11-jre-slim
+     FROM amazoncorretto:25-alpine
      COPY target/demo-app-1.0-SNAPSHOT-jar-with-dependencies.jar /app/demo-app.jar
      WORKDIR /app
      ENTRYPOINT ["java", "-jar", "demo-app.jar"]

@@ -1,7 +1,6 @@
+# TD DevOps 3 (2h)
 
-## TD DevOps 3 (2h)  
-
-### Thème : Déploiement Continu (CD) et Conteneurisation avec Docker
+## Thème : Déploiement Continu (CD) et Conteneurisation avec Docker
 
 **Objectifs :**  
 
@@ -15,12 +14,11 @@
 1. **Créer un jar exécutable**  
     - Dans `demo-app/pom.xml`, assurez-vous d’avoir le plugin `maven-assembly-plugin` ou `maven-shade-plugin` pour créer un fat jar (toutes dépendances incluses).  
 
-    Exemple pour `maven-assembly-plugin` :
-
-      ```xml
+    > Exemple pour `maven-assembly-plugin` :
+        ```xml
         <plugin>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>3.3.0</version>
+          <version>3.8.0</version>
           <configuration>
             <archive>
               <manifest>
@@ -41,19 +39,18 @@
             </execution>
           </executions>
         </plugin>
-      ```
-
-    Lancez :  
+        ```
+    > Lancez :  
         ```bash
         mvn clean package -f demo-app/pom.xml
         ```
-    Vous obtiendrez un fichier `demo-app-1.0-SNAPSHOT-jar-with-dependencies.jar` dans `target/`.
+    > Vous obtiendrez un fichier `demo-app-1.0-SNAPSHOT-jar-with-dependencies.jar` dans `target/`.
 
 2. **Créer un Dockerfile**  
    - Dans la racine du projet (ou dans `demo-app/`), créez un fichier `Dockerfile` :
 
      ```dockerfile
-     FROM openjdk:11-jre-slim
+     FROM amazoncorretto:25-alpine
      COPY target/demo-app-1.0-SNAPSHOT-jar-with-dependencies.jar /app/demo-app.jar
      WORKDIR /app
      ENTRYPOINT ["java", "-jar", "demo-app.jar"]
@@ -67,7 +64,7 @@
       docker build -t votreuser/demo-app:latest .
       ```
 
-    Testez l’image :
+    > Testez l’image :
         ```bash
         docker run --rm votreuser/demo-app:latest
         ```
