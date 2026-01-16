@@ -34,6 +34,15 @@
      docker --version
      ```
 
+   - Sur les postes AMU, installer Podman Desktop : [Installer Podman Desktop Windows](https://podman-desktop.io/downloads/windows)
+    - Ou avec la commande : `winget install -e --id RedHat.Podman-Desktop`
+
+   - Vérifier l’installation :  
+
+     ```bash
+     podman machine init
+     ```
+
 5. **Compte GitHub** (ou GitLab)  
    - [Créer un compte GitHub](https://github.com/join)
 
