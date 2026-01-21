@@ -35,7 +35,7 @@
      ```
 
    - Sur les postes AMU, installer Podman Desktop : [Installer Podman Desktop Windows](https://podman-desktop.io/downloads/windows)
-    - Ou avec la commande : `winget install -e --id RedHat.Podman-Desktop`
+   - Ou avec la commande : `winget install -e --id RedHat.Podman-Desktop`
 
    - Vérifier l’installation :  
 
@@ -49,4 +49,3 @@
     *(Les étapes ci-après sont illustrées pour GitHub et GitHub Actions, mais vous pouvez adapter pour GitLab et GitLab CI.)*
 
 ---
-
